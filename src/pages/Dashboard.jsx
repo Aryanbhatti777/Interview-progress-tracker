@@ -10,10 +10,6 @@ const Dashboard = () => {
     setQuestions(result);
   }, []);
 
-  // =========================
-  // Stats
-  // =========================
-
   const totalQuestions = questions.length;
 
   const completedQuestions = questions.filter(
@@ -24,9 +20,6 @@ const Dashboard = () => {
     (item) => item.status !== "completed",
   ).length;
 
-  // =========================
-  // Category Stats
-  // =========================
 
   const categories = useMemo(() => {
     const getSolved = (type) =>
@@ -75,7 +68,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-[#f7f7f8] text-gray-900">
-      {/* ================= HEADER ================= */}
+      
 
       <header className="border-b border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-6 py-7">
@@ -94,7 +87,6 @@ const Dashboard = () => {
               </p>
             </div>
 
-            {/* Completion */}
             <div className="bg-black text-white rounded-2xl px-6 py-4 min-w-[190px]">
               <p className="text-xs text-gray-400 uppercase tracking-wider">
                 Overall Progress
@@ -113,10 +105,10 @@ const Dashboard = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-8">
-        {/* ================= MAIN STATS ================= */}
+      
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {/* Total */}
+          
 
           <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <div className="flex items-start justify-between">
@@ -136,7 +128,7 @@ const Dashboard = () => {
             </p>
           </div>
 
-          {/* Completed */}
+        
 
           <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <div className="flex items-start justify-between">
@@ -171,7 +163,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Pending */}
+          
 
           <div className="bg-white border border-gray-200 rounded-2xl p-6">
             <div className="flex items-start justify-between">
@@ -192,7 +184,7 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {/* ================= CATEGORY SECTION ================= */}
+        
 
         <section className="mt-10">
           <div className="flex items-end justify-between mb-5">
@@ -224,7 +216,7 @@ const Dashboard = () => {
                   className="bg-white border border-gray-200 rounded-2xl p-6
                   hover:shadow-md transition-shadow duration-200"
                 >
-                  {/* Card Header */}
+               
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -244,7 +236,7 @@ const Dashboard = () => {
                     <span className="text-lg font-bold">{percentage}%</span>
                   </div>
 
-                  {/* Progress */}
+               
 
                   <div className="mt-6">
                     <div className="flex justify-between text-xs mb-2">
@@ -270,7 +262,7 @@ const Dashboard = () => {
           </div>
         </section>
 
-        {/* ================= OVERALL PROGRESS ================= */}
+       
 
         <section className="mt-10">
           <div className="bg-black text-white rounded-3xl p-7 md:p-9">

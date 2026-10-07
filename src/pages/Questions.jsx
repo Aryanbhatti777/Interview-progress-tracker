@@ -5,6 +5,10 @@ const Questions = () => {
   const [questions, setQuestions] = useState(
     JSON.parse(localStorage.getItem("questions")) || [],
   );
+  const [filterType, setFilterType] = useState("")
+  const [filterDifficulty, setFilterDifficulty] = useState("")
+
+  const filtered = (filterType || filterDifficulty) ? questions.filter(item => item.type === filterType || item.difficulty === filterDifficulty) : questions
 
   useEffect(() => {
     const result = JSON.parse(localStorage.getItem("questions")) || [];
@@ -60,6 +64,25 @@ const Questions = () => {
         </div>
       </div>
 
+      <div className="flex gap-4 p-3 justify-around items-center">
+        <h1 className="font-bold text-xl">Filter Questions</h1>
+        <select onChange={(e) => setFilterType(e.target.value)} className=' rounded p-2 mb-5 w-[30vw]'>
+          <option value="">All</option>
+          <option value="dsa">DSA</option>
+          <option value="development">Development</option>
+          <option value="git">Git</option>
+          <option value="technical">Technical</option>
+          <option value="interview">Interview</option>
+        </select>
+         
+        <select onChange={(e) => setFilterDifficulty(e.target.value)} className=' rounded p-2 mb-5 w-[30vw]'>
+          <option value="">All</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
       {/* Questions */}
       <main className="max-w-7xl mx-auto px-6 py-10">
         {questions.length === 0 ? (
@@ -78,7 +101,7 @@ const Questions = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {questions.map((item) => (
+            {filtered.map((item) => (
               <div
                 key={item.id}
                 className="group bg-white border border-gray-200 rounded-2xl p-5
