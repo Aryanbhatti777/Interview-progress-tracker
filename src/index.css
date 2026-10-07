@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+nav{
+    border-bottom: 1px solid gray;
+}
+
+input, textarea, select{
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+
+input[type="submit"]{
+    border: none;
+}
