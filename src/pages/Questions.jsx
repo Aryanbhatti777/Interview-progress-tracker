@@ -7,8 +7,9 @@ const Questions = () => {
   );
   const [filterType, setFilterType] = useState("")
   const [filterDifficulty, setFilterDifficulty] = useState("")
+  const [filterStatus, setFilterStatus] = useState("")
 
-  const filtered = (filterType || filterDifficulty) ? questions.filter(item => item.type === filterType || item.difficulty === filterDifficulty) : questions
+  const filtered = (filterType || filterDifficulty || filterStatus) ? questions.filter(item => item.type === filterType || item.difficulty === filterDifficulty || item.status === filterStatus) : questions
 
   useEffect(() => {
     const result = JSON.parse(localStorage.getItem("questions")) || [];
@@ -80,6 +81,12 @@ const Questions = () => {
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
+        </select>
+
+        <select onChange={(e) => setFilterStatus(e.target.value)} className=' rounded p-2 mb-5 w-[30vw]'>
+          <option value="">All</option>
+          <option value="completed">Completed</option>
+          <option value="pending">Pending</option>
         </select>
       </div>
 
