@@ -11,6 +11,7 @@ const AddQuestions = () => {
     const onSubmit = (data) => {
 
         data.status = "pending"
+        data.id = Date.now()
         const updatedQuestions = [...questions, data]
         setQuestions(updatedQuestions)
         localStorage.setItem("questions", JSON.stringify(updatedQuestions))
